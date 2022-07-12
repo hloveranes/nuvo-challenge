@@ -1,0 +1,227 @@
+$primary: black;
+$secondary: #fff;
+
+$blue: #00f;
+$lightBlue: #007bff;
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+h1 {
+  color: $primary;
+}
+.product-title {
+  margin: 3rem 1rem;
+}
+
+.txt-center {
+  text-align: center;
+}
+
+.product-frame {
+  display: flex;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.w-6-12 {
+  width: 49.44%;
+}
+
+.product-container {
+  display: grid;
+  grid-template-rows: auto;
+  // max-width: 330px;
+}
+
+.product-list {
+  position: relative;
+  display: flex;
+  border: 1px solid $primary;
+  border-radius: 10px;
+  padding: 10px;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+.product-list > img {
+  width: 30%;
+  margin-right: 10px;
+}
+.product-list > p {
+  width: 70%;
+}
+
+img {
+  max-width: 150px;
+  max-height: 150px;
+}
+
+// for product details
+.product-details {
+  position: relative;
+  border: 1px solid $primary;
+  border-radius: 10px;
+  max-height: 300px;
+}
+
+.product-details > div {
+  padding: 1.5rem 1rem;
+}
+
+.product-details > div > .price {
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.ratings {
+  display: flex;
+  margin-bottom: 1rem;
+}
+
+.ratings > .count {
+  margin-top: 12px;
+}
+
+// ratings
+.checked {
+  color: orange;
+}
+
+// chevron
+.chevron-container {
+  position: absolute;
+  top: 50%;
+  right: 2%;
+  transform: translate(-2%, -50%);
+  padding: 7px;
+  height: 20px;
+  width: 20px;
+  border-radius: 50%;
+  border: 1px solid $primary;
+}
+.chevron {
+  margin-left: 6px;
+  position: relative;
+  display: block;
+  height: 50px; /*Height should be double border thickness*/
+}
+.chevron-active::before,
+.chevron-active::after {
+  position: absolute;
+  display: block;
+  content: "";
+  border: 10px solid transparent; /*Adjust chevron size*/
+}
+.chevron-active::before {
+  left: 0;
+  border-left-color: #000;
+}
+.chevron-active::after {
+  left: -5px;
+  border-left-color: #fff;
+}
+
+// inactive
+.chevron-inactive::before,
+.chevron-inactive::after {
+  position: absolute;
+  display: block;
+  content: "";
+  border: 10px solid transparent;
+}
+.chevron-inactive::before {
+  right: 9px;
+  border-right-color: #000;
+}
+.chevron-inactive::after {
+  right: 4px;
+  border-right-color: #fff;
+}
+
+// star rating
+.rate {
+  float: left;
+  height: 46px;
+  padding: 0 10px;
+}
+.rate:not(:checked) > input {
+  position: absolute;
+  top: -9999px;
+}
+.rate:not(:checked) > label {
+  float: right;
+  width: 1em;
+  overflow: hidden;
+  white-space: nowrap;
+  cursor: pointer;
+  font-size: 30px;
+  color: #ccc;
+}
+.rate:not(:checked) > label:before {
+  content: "★ ";
+}
+.rate > input:checked ~ label {
+  color: #ffc700;
+}
+.rate:not(:checked) > label:hover,
+.rate:not(:checked) > label:hover ~ label {
+  color: #deb217;
+}
+.rate > input:checked + label:hover,
+.rate > input:checked + label:hover ~ label,
+.rate > input:checked ~ label:hover,
+.rate > input:checked ~ label:hover ~ label,
+.rate > label:hover ~ input:checked ~ label {
+  color: #c59b08;
+}
+
+// add to cart button
+button {
+  position: absolute;
+  bottom: 2%;
+  left: 50%;
+  transform: translate(-50%, -2%);
+  border: none;
+  padding: 0.5rem 1rem;
+  color: $secondary;
+  background-color: $lightBlue;
+  border-radius: 10px;
+}
+button:hover {
+  cursor: pointer;
+  color: $primary;
+}
+
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 600px) {
+  .product-frame {
+    display: grid;
+    grid-template-rows: auto;
+    gap: 20px;
+  }
+  .w-6-12 {
+    width: 100%;
+  }
+}
+
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (min-width: 600px) {
+  .product-container {
+    margin-right: 1rem;
+  }
+  .w-6-12 {
+    max-width: 360px;
+  }
+}
+/* Medium devices (landscape tablets, 768px and up) */
+@media only screen and (min-width: 768px) {
+}
+/* Large devices (laptops/desktops, 992px and up) */
+@media only screen and (min-width: 992px) {
+}
+/* Extra large devices (large laptops and desktops, 1200px and up) */
+@media only screen and (min-width: 1200px) {
+}
